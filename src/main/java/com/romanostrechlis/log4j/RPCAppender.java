@@ -1,7 +1,7 @@
 package com.romanostrechlis.log4j;
 
-import com.romanostrechlis.log4j.api.LogStream;
-import com.romanostrechlis.log4j.api.LogStreamClient;
+import com.romanostrechlis.log4j.api.LogScribeOuterClass;
+import com.romanostrechlis.log4j.api.LogScribeClient;
 
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.Layout;
@@ -55,13 +55,13 @@ public class RPCAppender extends FileAppender {
   }
 
   protected void subAppend(LoggingEvent event) {
-    LogStream.LogRequest req = LogStream.LogRequest.newBuilder()
+    LogScribeOuterClass.LogRequest req = LogScribeOuterClass.LogRequest.newBuilder()
         .setFilename(this.getName())
         .setPath(this.getFile())
         .setLine(customFormat(event))
         .build();
     try {
-      LogStreamClient client = new LogStreamClient(host, port);
+      LogScribeClient client = new LogScribeClient(host, port);
       client.send(req);
     } catch (Exception e) {
     } finally {

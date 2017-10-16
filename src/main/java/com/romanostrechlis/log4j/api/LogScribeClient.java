@@ -4,27 +4,27 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
 
-public class LogStreamClient {
+public class LogScribeClient {
 
   private ManagedChannel channel;
-  private LogStreamerGrpc.LogStreamerStub asyncStub;
+  private LogScribeGrpc.LogScribeStub asyncStub;
 
-  public LogStreamClient(String host, int port) {
+  public LogScribeClient(String host, int port) {
     this(ManagedChannelBuilder.forAddress(host, port).usePlaintext(true));
   }
 
-  public LogStreamClient(ManagedChannelBuilder<?> channelBuilder) {
+  public LogScribeClient(ManagedChannelBuilder<?> channelBuilder) {
     this.channel = channelBuilder.build();
     //blockingStub = RouteGuideGrpc.newBlockingStub(channel);
-    this.asyncStub = LogStreamerGrpc.newStub(channel);
+    this.asyncStub = LogScribeGrpc.newStub(channel);
 
   }
 
-  public void send(LogStream.LogRequest req) {
-    LogStream.LogResponse res = LogStream.LogResponse.newBuilder().build();
+  public void send(LogScribeOuterClass.LogRequest req) {
+    LogScribeOuterClass.LogResponse res = LogScribeOuterClass.LogResponse.newBuilder().build();
 
-    asyncStub.log(req, new StreamObserver<LogStream.LogResponse>() {
-      public void onNext(LogStream.LogResponse logResponse) {
+    asyncStub.log(req, new StreamObserver<LogScribeOuterClass.LogResponse>() {
+      public void onNext(LogScribeOuterClass.LogResponse logResponse) {
         // System.out.println("onNext");
       }
       public void onError(Throwable throwable) {

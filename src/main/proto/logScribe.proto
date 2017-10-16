@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package com.romanostrechlis.log4j.api;
+
+// service defines a new service names LogScribe
+service LogScribe {
+  // the LogScribe service sends a LogRequest
+  // and recieves a LogResponse
+  rpc Log(LogRequest) returns (LogResponse) {}
+}
+
+service Pinger {
+  rpc Ping(PingRequest) returns (PingResponse) {}
+}
+
+service Register {
+  rpc Register (RegisterRequest) returns (RegisterResponse){}
+}
+
+// message is the structure that get serialized
+// the numbered fields are necessary for the serialization.
+// LogRequest is the structure that gets serialized
+// and then sent to rpc server.
+message LogRequest {
+  string filename = 1;
+  string path = 2;
+  string line = 3;
+}
+
+// LogResponse is the reply from rpc server
+message LogResponse {
+  string res = 1;
+}
+
+// PingRequest sends two numbers to mediator
+message PingRequest {
+  int32 a = 1;
+  int32 b = 2;
+  string streamerId = 3;
+}
+
+// PingResponse returns the mediator's response
+message PingResponse {
+  int32 res = 2;
+}
+
+message RegisterRequest {
+  string id = 1;
+  string addr = 2;
+}
+
+message RegisterResponse {
+  string res = 1;
+}
