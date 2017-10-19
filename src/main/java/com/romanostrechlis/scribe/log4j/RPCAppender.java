@@ -1,7 +1,6 @@
-package com.romanostrechlis.log4j;
+package com.romanostrechlis.scribe.log4j;
 
-import com.romanostrechlis.log4j.api.LogScribeOuterClass;
-import com.romanostrechlis.log4j.api.LogScribeClient;
+import com.romanostrechlis.scribe.api.LogScribeOuterClass;
 
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.Layout;
@@ -58,7 +57,7 @@ public class RPCAppender extends FileAppender {
     LogScribeOuterClass.LogRequest req = LogScribeOuterClass.LogRequest.newBuilder()
         .setFilename(this.getName())
         .setPath(this.getFile())
-        .setLine(customFormat(event))
+        .setLine(super.layout.format(event))
         .build();
     try {
       LogScribeClient client = new LogScribeClient(host, port);

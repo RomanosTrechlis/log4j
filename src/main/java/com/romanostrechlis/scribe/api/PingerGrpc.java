@@ -1,4 +1,4 @@
-package com.romanostrechlis.log4j.api;
+package com.romanostrechlis.scribe.api;
 
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
 import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
@@ -24,20 +24,20 @@ public final class PingerGrpc {
 
   private PingerGrpc() {}
 
-  public static final String SERVICE_NAME = "com.romanostrechlis.log4j.api.Pinger";
+  public static final String SERVICE_NAME = "com.romanostrechlis.scribe.api.Pinger";
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.romanostrechlis.log4j.api.LogScribeOuterClass.PingRequest,
-      com.romanostrechlis.log4j.api.LogScribeOuterClass.PingResponse> METHOD_PING =
-      io.grpc.MethodDescriptor.<com.romanostrechlis.log4j.api.LogScribeOuterClass.PingRequest, com.romanostrechlis.log4j.api.LogScribeOuterClass.PingResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<com.romanostrechlis.scribe.api.LogScribeOuterClass.PingRequest,
+      com.romanostrechlis.scribe.api.LogScribeOuterClass.PingResponse> METHOD_PING =
+      io.grpc.MethodDescriptor.<com.romanostrechlis.scribe.api.LogScribeOuterClass.PingRequest, com.romanostrechlis.scribe.api.LogScribeOuterClass.PingResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "com.romanostrechlis.log4j.api.Pinger", "Ping"))
+              "com.romanostrechlis.scribe.api.Pinger", "Ping"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.romanostrechlis.log4j.api.LogScribeOuterClass.PingRequest.getDefaultInstance()))
+              com.romanostrechlis.scribe.api.LogScribeOuterClass.PingRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.romanostrechlis.log4j.api.LogScribeOuterClass.PingResponse.getDefaultInstance()))
+              com.romanostrechlis.scribe.api.LogScribeOuterClass.PingResponse.getDefaultInstance()))
           .setSchemaDescriptor(new PingerMethodDescriptorSupplier("Ping"))
           .build();
 
@@ -70,19 +70,19 @@ public final class PingerGrpc {
 
     /**
      */
-    public void ping(com.romanostrechlis.log4j.api.LogScribeOuterClass.PingRequest request,
-        io.grpc.stub.StreamObserver<com.romanostrechlis.log4j.api.LogScribeOuterClass.PingResponse> responseObserver) {
+    public void ping(com.romanostrechlis.scribe.api.LogScribeOuterClass.PingRequest request,
+        io.grpc.stub.StreamObserver<com.romanostrechlis.scribe.api.LogScribeOuterClass.PingResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_PING, responseObserver);
     }
 
-    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
+    @Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             METHOD_PING,
             asyncUnaryCall(
               new MethodHandlers<
-                com.romanostrechlis.log4j.api.LogScribeOuterClass.PingRequest,
-                com.romanostrechlis.log4j.api.LogScribeOuterClass.PingResponse>(
+                com.romanostrechlis.scribe.api.LogScribeOuterClass.PingRequest,
+                com.romanostrechlis.scribe.api.LogScribeOuterClass.PingResponse>(
                   this, METHODID_PING)))
           .build();
     }
@@ -100,7 +100,7 @@ public final class PingerGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected PingerStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new PingerStub(channel, callOptions);
@@ -108,8 +108,8 @@ public final class PingerGrpc {
 
     /**
      */
-    public void ping(com.romanostrechlis.log4j.api.LogScribeOuterClass.PingRequest request,
-        io.grpc.stub.StreamObserver<com.romanostrechlis.log4j.api.LogScribeOuterClass.PingResponse> responseObserver) {
+    public void ping(com.romanostrechlis.scribe.api.LogScribeOuterClass.PingRequest request,
+        io.grpc.stub.StreamObserver<com.romanostrechlis.scribe.api.LogScribeOuterClass.PingResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_PING, getCallOptions()), request, responseObserver);
     }
@@ -127,7 +127,7 @@ public final class PingerGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected PingerBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new PingerBlockingStub(channel, callOptions);
@@ -135,7 +135,7 @@ public final class PingerGrpc {
 
     /**
      */
-    public com.romanostrechlis.log4j.api.LogScribeOuterClass.PingResponse ping(com.romanostrechlis.log4j.api.LogScribeOuterClass.PingRequest request) {
+    public com.romanostrechlis.scribe.api.LogScribeOuterClass.PingResponse ping(com.romanostrechlis.scribe.api.LogScribeOuterClass.PingRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_PING, getCallOptions(), request);
     }
@@ -153,7 +153,7 @@ public final class PingerGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected PingerFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new PingerFutureStub(channel, callOptions);
@@ -161,8 +161,8 @@ public final class PingerGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.romanostrechlis.log4j.api.LogScribeOuterClass.PingResponse> ping(
-        com.romanostrechlis.log4j.api.LogScribeOuterClass.PingRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.romanostrechlis.scribe.api.LogScribeOuterClass.PingResponse> ping(
+        com.romanostrechlis.scribe.api.LogScribeOuterClass.PingRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_PING, getCallOptions()), request);
     }
@@ -183,21 +183,21 @@ public final class PingerGrpc {
       this.methodId = methodId;
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_PING:
-          serviceImpl.ping((com.romanostrechlis.log4j.api.LogScribeOuterClass.PingRequest) request,
-              (io.grpc.stub.StreamObserver<com.romanostrechlis.log4j.api.LogScribeOuterClass.PingResponse>) responseObserver);
+          serviceImpl.ping((com.romanostrechlis.scribe.api.LogScribeOuterClass.PingRequest) request,
+              (io.grpc.stub.StreamObserver<com.romanostrechlis.scribe.api.LogScribeOuterClass.PingResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
       }
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
@@ -211,12 +211,12 @@ public final class PingerGrpc {
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
     PingerBaseDescriptorSupplier() {}
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.romanostrechlis.log4j.api.LogScribeOuterClass.getDescriptor();
+      return com.romanostrechlis.scribe.api.LogScribeOuterClass.getDescriptor();
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
       return getFileDescriptor().findServiceByName("Pinger");
     }
@@ -236,7 +236,7 @@ public final class PingerGrpc {
       this.methodName = methodName;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.MethodDescriptor getMethodDescriptor() {
       return getServiceDescriptor().findMethodByName(methodName);
     }

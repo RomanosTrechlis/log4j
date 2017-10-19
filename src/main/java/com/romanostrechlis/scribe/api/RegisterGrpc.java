@@ -1,4 +1,4 @@
-package com.romanostrechlis.log4j.api;
+package com.romanostrechlis.scribe.api;
 
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
 import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
@@ -24,20 +24,20 @@ public final class RegisterGrpc {
 
   private RegisterGrpc() {}
 
-  public static final String SERVICE_NAME = "com.romanostrechlis.log4j.api.Register";
+  public static final String SERVICE_NAME = "com.romanostrechlis.scribe.api.Register";
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterRequest,
-      com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterResponse> METHOD_REGISTER =
-      io.grpc.MethodDescriptor.<com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterRequest, com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterRequest,
+      com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterResponse> METHOD_REGISTER =
+      io.grpc.MethodDescriptor.<com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterRequest, com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "com.romanostrechlis.log4j.api.Register", "Register"))
+              "com.romanostrechlis.scribe.api.Register", "Register"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterRequest.getDefaultInstance()))
+              com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterResponse.getDefaultInstance()))
+              com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterResponse.getDefaultInstance()))
           .setSchemaDescriptor(new RegisterMethodDescriptorSupplier("Register"))
           .build();
 
@@ -70,19 +70,19 @@ public final class RegisterGrpc {
 
     /**
      */
-    public void register(com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterRequest request,
-        io.grpc.stub.StreamObserver<com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterResponse> responseObserver) {
+    public void register(com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterRequest request,
+        io.grpc.stub.StreamObserver<com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_REGISTER, responseObserver);
     }
 
-    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
+    @Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             METHOD_REGISTER,
             asyncUnaryCall(
               new MethodHandlers<
-                com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterRequest,
-                com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterResponse>(
+                com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterRequest,
+                com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterResponse>(
                   this, METHODID_REGISTER)))
           .build();
     }
@@ -100,7 +100,7 @@ public final class RegisterGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected RegisterStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new RegisterStub(channel, callOptions);
@@ -108,8 +108,8 @@ public final class RegisterGrpc {
 
     /**
      */
-    public void register(com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterRequest request,
-        io.grpc.stub.StreamObserver<com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterResponse> responseObserver) {
+    public void register(com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterRequest request,
+        io.grpc.stub.StreamObserver<com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_REGISTER, getCallOptions()), request, responseObserver);
     }
@@ -127,7 +127,7 @@ public final class RegisterGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected RegisterBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new RegisterBlockingStub(channel, callOptions);
@@ -135,7 +135,7 @@ public final class RegisterGrpc {
 
     /**
      */
-    public com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterResponse register(com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterRequest request) {
+    public com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterResponse register(com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_REGISTER, getCallOptions(), request);
     }
@@ -153,7 +153,7 @@ public final class RegisterGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected RegisterFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new RegisterFutureStub(channel, callOptions);
@@ -161,8 +161,8 @@ public final class RegisterGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterResponse> register(
-        com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterResponse> register(
+        com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_REGISTER, getCallOptions()), request);
     }
@@ -183,21 +183,21 @@ public final class RegisterGrpc {
       this.methodId = methodId;
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_REGISTER:
-          serviceImpl.register((com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterRequest) request,
-              (io.grpc.stub.StreamObserver<com.romanostrechlis.log4j.api.LogScribeOuterClass.RegisterResponse>) responseObserver);
+          serviceImpl.register((com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterRequest) request,
+              (io.grpc.stub.StreamObserver<com.romanostrechlis.scribe.api.LogScribeOuterClass.RegisterResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
       }
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
@@ -211,12 +211,12 @@ public final class RegisterGrpc {
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
     RegisterBaseDescriptorSupplier() {}
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.romanostrechlis.log4j.api.LogScribeOuterClass.getDescriptor();
+      return com.romanostrechlis.scribe.api.LogScribeOuterClass.getDescriptor();
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
       return getFileDescriptor().findServiceByName("Register");
     }
@@ -236,7 +236,7 @@ public final class RegisterGrpc {
       this.methodName = methodName;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.MethodDescriptor getMethodDescriptor() {
       return getServiceDescriptor().findMethodByName(methodName);
     }

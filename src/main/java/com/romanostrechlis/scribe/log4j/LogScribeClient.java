@@ -1,4 +1,7 @@
-package com.romanostrechlis.log4j.api;
+package com.romanostrechlis.scribe.log4j;
+
+import com.romanostrechlis.scribe.api.LogScribeGrpc;
+import com.romanostrechlis.scribe.api.LogScribeOuterClass;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
